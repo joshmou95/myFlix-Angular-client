@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/internal/operators';
 
 // HttpClient returns an observable
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -30,8 +30,12 @@ export class FetchApiDataService {
 
   // User Login
   public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
-    return this.http.post(apiUrl + 'login', userDetails).pipe(
+    const params = new HttpParams()
+      .set('Username', userDetails.Username)
+      .set('Password', userDetails.Password); 
+    const body = JSON.stringify(userDetails);
+
+    return this.http.post(apiUrl + 'login', body, { 'params': params} ).pipe(
     catchError(this.handleError)
     );
   }
