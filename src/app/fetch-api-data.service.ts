@@ -28,7 +28,7 @@ export class FetchApiDataService {
     );
   }
 
-  // User Login
+  // User Login, passing details to query params in the URL
   public userLogin(userDetails: any): Observable<any> {
     const params = new HttpParams()
       .set('Username', userDetails.Username)
