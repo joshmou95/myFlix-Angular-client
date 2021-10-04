@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -11,7 +13,10 @@ export class MovieCardComponent {
   // movies variable declared as an array
   movies: any[] = [];
 
-  constructor(public fetchApiData: FetchApiDataService) { }
+  constructor(
+    public fetchApiData: FetchApiDataService, 
+    public dialog: MatDialog,
+    ) { }
 
   // called when Angular is done creating the component
   ngOnInit(): void {
@@ -26,5 +31,20 @@ export class MovieCardComponent {
       return this.movies;
     });
   }
+
+  // opens the genre dialog
+  openGenreDialog(): void {
+    this.dialog.open(GenreDialogComponent, );
+  }
+
+  // openGenreDialog(name: string, description: string): void {
+  //   let dialogRef = this.dialog.open(GenreDialogComponent, {
+  //     data: { 
+  //       name, description
+  //      }
+  //   });
+  // }
+
+
 
 }
