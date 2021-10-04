@@ -38,6 +38,7 @@
           </button>
           <button
               mat-button
+              (click)="openDetailsDialog(movie.Title, movie.Description, movie.ImagePath)"
               color="primary"
           >
               Synopsis
