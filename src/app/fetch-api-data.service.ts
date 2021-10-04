@@ -35,7 +35,7 @@ export class FetchApiDataService {
       .set('Password', userDetails.Password); 
     const body = JSON.stringify(userDetails);
 
-    return this.http.post(apiUrl + 'login', body, { 'params': params} ).pipe(
+    return this.http.post(apiUrl + 'login', body, { 'params': params } ).pipe(
     catchError(this.handleError)
     );
   }
