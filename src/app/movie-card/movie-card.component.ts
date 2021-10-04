@@ -3,6 +3,7 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { GenreDialogComponent } from '../genre-dialog/genre-dialog.component';
 import { DirectorDialogComponent } from '../director-dialog/director-dialog.component';
+import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -52,14 +53,14 @@ export class MovieCardComponent {
     } );
   }
 
-  // openGenreDialog(name: string, description: string): void {
-  //   let dialogRef = this.dialog.open(GenreDialogComponent, {
-  //     data: { 
-  //       name, description
-  //      }
-  //   });
-  // }
-
-
+  openDetailsDialog(title: string, description: string, image: string ): void {
+    this.dialog.open(DetailsDialogComponent, {
+      data: {
+        title: title,
+        description: description,
+        image: image
+      }
+    } );
+  }
 
 }
