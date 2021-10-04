@@ -1,1 +1,10 @@
-<p>details-dialog works!</p>
+<h2 mat-dialog-title>{{data.title}}</h2>
+  <mat-dialog-content class="details-content">
+    <img mat-card-image 
+    src={{data.image}}  class="poster">
+    <br>
+    {{data.description}}
+  </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
