@@ -30,6 +30,11 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { GenreDialogComponent } from './genre-dialog/genre-dialog.component';
+import { DirectorDialogComponent } from './director-dialog/director-dialog.component';
+import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
+import { UserProfileUpdateComponent } from './user-profile-update/user-profile-update.component';
 
 // define welcome route and resolve empty route
 const appRoutes: Routes = [
@@ -45,7 +50,12 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    UserProfileComponent,
+    GenreDialogComponent,
+    DirectorDialogComponent,
+    DetailsDialogComponent,
+    UserProfileUpdateComponent
   ],
   imports: [
     BrowserModule,
