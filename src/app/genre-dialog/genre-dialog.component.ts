@@ -9,11 +9,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export class GenreDialogComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<GenreDialogComponent>,
+  constructor(
     @Inject(MAT_DIALOG_DATA)
-    public data: any) {
-
-     }
+    public data: any) { }
 
   ngOnInit(): void {
   }
