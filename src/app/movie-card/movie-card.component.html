@@ -24,13 +24,14 @@
         <mat-card-actions>
           <button
               mat-button
-              (click)="openGenreDialog()"
+              (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
               color="primary"
           >
               Genre
           </button>
           <button
               mat-button
+              (click)="openDirectorDialog(movie.Director.Name, movie.Director.Bio)"
               color="primary"
           >
               Director
