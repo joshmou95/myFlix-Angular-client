@@ -11,7 +11,7 @@ import { DetailsDialogComponent } from '../details-dialog/details-dialog.compone
   styleUrls: ['./movie-card.component.scss']
 })
 
-export class MovieCardComponent {
+export class MovieCardComponent implements OnInit {
   // movies variable declared as an array
   movies: any[] = [];
 
@@ -25,7 +25,7 @@ export class MovieCardComponent {
     this.getMovies();
   }
 
-  // fetch movies from the API
+  // fetch movies from the API with getAllMovies()
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
