@@ -35,6 +35,7 @@ import { GenreDialogComponent } from './genre-dialog/genre-dialog.component';
 import { DirectorDialogComponent } from './director-dialog/director-dialog.component';
 import { DetailsDialogComponent } from './details-dialog/details-dialog.component';
 import { UserProfileUpdateComponent } from './user-profile-update/user-profile-update.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 // define welcome route and resolve empty route
 const appRoutes: Routes = [
@@ -56,7 +57,8 @@ const appRoutes: Routes = [
     GenreDialogComponent,
     DirectorDialogComponent,
     DetailsDialogComponent,
-    UserProfileUpdateComponent
+    UserProfileUpdateComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
