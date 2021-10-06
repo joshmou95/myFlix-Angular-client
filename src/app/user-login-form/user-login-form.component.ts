@@ -44,8 +44,7 @@ export class UserLoginFormComponent implements OnInit {
     // navigate to the movie card view for all movies
     this.router.navigate(['movies']);
     console.log('loginUser response 1', response);
-
-    this.snackBar.open(response, 'OK', {
+    this.snackBar.open('Login was successful!', 'OK', {
         duration: 2000
     });
     }, (response) => {
