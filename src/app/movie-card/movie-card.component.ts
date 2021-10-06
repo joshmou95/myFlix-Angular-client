@@ -6,6 +6,7 @@ import { DirectorDialogComponent } from '../director-dialog/director-dialog.comp
 import { DetailsDialogComponent } from '../details-dialog/details-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -75,9 +76,6 @@ export class MovieCardComponent implements OnInit {
       return false;
     }
   }
-
-
-
 
   // opens the genre dialog
   openGenreDialog(name: string, description: string): void {
