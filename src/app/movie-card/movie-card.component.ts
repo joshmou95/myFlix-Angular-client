@@ -58,7 +58,7 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // remove movie from favorites array
+  // remove movie from favorites array in user object
   removeFavoriteButton(id: string, title: string): void {
     this.fetchApiData.removeFavorite(id).subscribe((resp: any) => {
       this.favorites = resp.FavoriteMovies;
@@ -77,9 +77,10 @@ export class MovieCardComponent implements OnInit {
     }
   }
 
-  // opens the genre dialog
+  // dialog opened when Genre button is clicked
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreDialogComponent, {
+      // pass genre data to genre dialog component
       data: {
         name: name, 
         description: description
@@ -87,8 +88,10 @@ export class MovieCardComponent implements OnInit {
     } );
   }
 
+  // dialog opened when Director button is clicked
   openDirectorDialog(name: string, bio: string): void {
     this.dialog.open(DirectorDialogComponent, {
+      // pass director data to director dialog component
       data: {
         name: name, 
         bio: bio
@@ -96,8 +99,10 @@ export class MovieCardComponent implements OnInit {
     } );
   }
 
+  // dialog opened when Synopsis button is clicked
   openDetailsDialog(title: string, description: string, image: string ): void {
     this.dialog.open(DetailsDialogComponent, {
+      // pass movie data to details dialog component
       data: {
         title: title,
         description: description,
