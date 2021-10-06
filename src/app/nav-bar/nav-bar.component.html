@@ -1,0 +1,16 @@
+<mat-toolbar color="primary" class="navbar">
+    <span>MyFlix</span>
+    <div>
+      <span 
+      style="cursor: pointer"
+      [routerLink]="'/movies'">Movies</span>
+      <span 
+      style="cursor: pointer"
+      [routerLink]="'/users'">Profile</span>
+      <span
+      style="cursor: pointer"
+      (click)="userLogout()"
+      [routerLink]="'/welcome'"
+      >Logout</span>
+    </div>
+</mat-toolbar>
