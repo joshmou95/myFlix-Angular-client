@@ -1,2 +1,22 @@
 <app-nav-bar></app-nav-bar>
-<p>user-profile works!</p>
+
+<div class="user-profile">
+  <div fxFlex="50%">
+  <mat-card class="user-content">
+    <mat-card-title>
+      {{username}}'s Profile
+    </mat-card-title>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      Username: {{user.Username}}
+      <br>
+      Email: {{user.Email}}
+      <br>
+      Birthday: {{user.Birthday}}
+    </mat-card-content>
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>
