@@ -7,6 +7,7 @@ import { DetailsDialogComponent } from '../details-dialog/details-dialog.compone
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
+
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
@@ -40,6 +41,7 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  // get FavoriteMovies array from user object
   getUserFavs(): void {
     this.fetchApiData.getUser().subscribe((resp: any) =>{
       this.favorites = resp.FavoriteMovies;
@@ -69,6 +71,7 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+  // return true if is in favorites and sets the icon to reflect status
   setFaveStatus(id: any): any {
     if (this.favorites.includes(id)) {
       return true;
