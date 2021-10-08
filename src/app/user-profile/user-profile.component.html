@@ -15,7 +15,14 @@
       Birthday: {{user.Birthday}}
     </mat-card-content>
     <mat-card-actions>
-
+      <button
+        mat-button
+        (click)="deleteUserData()"
+        [routerLink]="'/welcome'"
+        color="warn"
+      >
+        Delete Account
+      </button>
     </mat-card-actions>
   </mat-card>
 </div>
