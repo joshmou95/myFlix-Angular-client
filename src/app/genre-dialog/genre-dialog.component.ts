@@ -10,11 +10,10 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class GenreDialogComponent implements OnInit {
 
   constructor(
+    // retrieve data from movie-card openGenreDialog()
     @Inject(MAT_DIALOG_DATA)
     public data: any) { }
 
   ngOnInit(): void {
   }
-
-
 }
