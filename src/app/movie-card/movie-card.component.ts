@@ -7,7 +7,6 @@ import { DetailsDialogComponent } from '../details-dialog/details-dialog.compone
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
-
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
