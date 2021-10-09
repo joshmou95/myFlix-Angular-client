@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-user-profile-update',
@@ -10,10 +12,13 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 
 export class UserProfileUpdateComponent implements OnInit {
-
+  
+  // defines the components input, userData object is passed to the API call in the updateUser function
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: any,
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserProfileUpdateComponent>,
     public snackBar: MatSnackBar,
@@ -22,15 +27,15 @@ export class UserProfileUpdateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  // Update user data via the form 
   updateUser(): void {
     this.fetchApiData.updateUser(this.userData).subscribe((response) => {
-
-  // Logic for a successful user registration goes here! (To be implemented)
+      // This will close the modal on success
     this.dialogRef.close(); 
-    // This will close the modal on success!
-    localStorage.setItem('username', response.Username)
+    // get username from local storage
+    localStorage.setItem('user', response.Username)
     console.log(response);
+    // message to user on update success
     this.snackBar.open(`Update Successful!`, 'OK', {
         duration: 3000
     });
@@ -40,6 +45,10 @@ export class UserProfileUpdateComponent implements OnInit {
         duration: 2000
       });
     });
+    // reload page upon update
+    setTimeout(function () {
+      window.location.reload();
+     }, 3000);
   }
 
 }
