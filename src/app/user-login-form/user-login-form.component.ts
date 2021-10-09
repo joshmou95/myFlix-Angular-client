@@ -9,7 +9,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 
-
 // component can be used in the html file as <app-user-login-form>
 @Component({
   selector: 'app-user-login-form',
@@ -18,6 +17,7 @@ import { Router } from '@angular/router';
 })
 
 export class UserLoginFormComponent implements OnInit {
+  isLoading = false;
   
   // defines the components input, userData object is passed to the API call in the LoginUser function
   @Input() userData = { Username: '', Password: '' };
@@ -26,29 +26,32 @@ export class UserLoginFormComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UserLoginFormComponent>,
     public router: Router, 
-    public snackBar: MatSnackBar) { }
+    public snackBar: MatSnackBar
+    ) { }
 
   ngOnInit(): void {
   }
 
   // This is the function responsible for sending the form inputs to the backend
   loginUser(): void {
+    this.isLoading = true;
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
+      this.isLoading = false;
     // This will close the modal on success
     this.dialogRef.close();
-
     // store username and token in local storage
     localStorage.setItem('user', response.user.Username);
     localStorage.setItem('token', response.token);
-
     // navigate to the movie card view for all movies
     this.router.navigate(['movies']);
-    console.log('loginUser response 1', response);
+    console.log('loginUser success');
+    // message to user upon login
     this.snackBar.open('Login was successful!', 'OK', {
         duration: 2000
     });
     }, (response) => {
-      console.log('loginUser response 2', response);
+      this.isLoading = false;
+      console.log('loginUser response 2');
       this.snackBar.open(response, 'OK', {
         duration: 2000
       });
