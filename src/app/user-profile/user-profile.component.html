@@ -1,23 +1,25 @@
 <app-nav-bar></app-nav-bar>
-
+<!-- User Profile information with buttons to update and delete user -->
 <div class="user-profile">
   <div fxFlex="50%">
-    <mat-card class="user-content">
+    <mat-card class="user-content mat-elevation-z4">
       <mat-card-title>
         {{username}}'s Profile
       </mat-card-title>
       <mat-divider></mat-divider>
       <mat-card-content>
+        <p>
         Username: {{user.Username}}
         <br>
         Email: {{user.Email}}
         <br>
-        Birthday: {{user.Birthday}}
+        Birthday: {{user.Birthday | date: "dd/MM/yyyy" || "N/A"}}
+        </p>
       </mat-card-content>
       <mat-card-actions>
         <button
           mat-raised-button
-          (click)="openProfileUpdateDialog()"
+          (click)="openProfileUpdateDialog(user.Username, user.Email, user.Birthday)"
           color="primary"
         >
           Update Profile
@@ -33,5 +35,20 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  
+ <!-- List if Favorite Movies -->
+  <div class="favorite-movies">
+    <h2>{{username}}'s Favorite Movies</h2>
+    <div fxLayout="row wrap" fxLayoutGap="20px grid">
+      <div fxFlex="25%" 
+      *ngFor="let favorite of favorites;"
+      fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex.xl="20%">
+        <mat-card class="mat-elevation-z4">
+          <mat-card-header>
+            <mat-card-title>{{favorite.Title}}</mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src={{favorite.ImagePath}} alt= {{favorite.Title}} class="poster">
+        </mat-card>
+      </div>
+    </div>
+  </div>
 </div>
