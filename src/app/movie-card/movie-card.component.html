@@ -1,5 +1,7 @@
 <!-- *ngFor directive is used to display all movies -->
 <!-- "movies" variable declared in component -->
+<!-- card contains buttons to view genre, director, and details -->
+<!-- mat-icon changes on status of favorite movies by adding or removing -->
 <app-nav-bar></app-nav-bar>
 <div class="movie-card">
   <div fxLayout="row wrap" fxLayoutGap="20px grid">
@@ -33,6 +35,7 @@
           >
               Synopsis
           </button>
+          <div>
           <mat-icon
             *ngIf="!setFaveStatus(movie._id)"
             aria-label='Add movie to favorites button'
@@ -50,6 +53,7 @@
             >
             favorite
           </mat-icon>
+        </div>
         </mat-card-actions>
       </mat-card>
     </div>
