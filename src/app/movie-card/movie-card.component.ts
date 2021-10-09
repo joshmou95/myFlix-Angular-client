@@ -14,9 +14,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 
 export class MovieCardComponent implements OnInit {
-  // movies variable declared as an array
+  // movies and favorites variables declared as an arrays
   movies: any[] = [];
-  user: any[] = [];
   favorites: any[] = [];
 
   constructor(
@@ -35,7 +34,7 @@ export class MovieCardComponent implements OnInit {
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
-      console.log('getMovies() reached', this.movies);
+      console.log('getMovies() reached');
       return this.movies;
     });
   }
@@ -44,14 +43,16 @@ export class MovieCardComponent implements OnInit {
   getUserFavs(): void {
     this.fetchApiData.getUser().subscribe((resp: any) =>{
       this.favorites = resp.FavoriteMovies;
+      console.log('getUserFavs() reached');
       return this.favorites
     });
   }
 
-  // add movie to user favorites array
+  // add movie to user favorites array with addFavorite() with mat-icon
   addFavoriteButton(id: string, title: string): void {
     this.fetchApiData.addFavorite(id).subscribe((resp: any) => {
       this.favorites = resp.FavoriteMovies;
+      // message to user when icon is clicked
       this.snackBar.open(`${title} has been added to your favorites`, 'OK', {
         duration: 3000,
       });
@@ -59,10 +60,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // remove movie from favorites array in user object
+  // remove movie from favorites array in user object with removeFavorite() with mat-icon
   removeFavoriteButton(id: string, title: string): void {
     this.fetchApiData.removeFavorite(id).subscribe((resp: any) => {
       this.favorites = resp.FavoriteMovies;
+      // message to user when icon is clicked
       this.snackBar.open(`${title} has been removed from your favorites`, 'OK', {
         duration: 3000,
       });
@@ -70,7 +72,7 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
-  // return true if is in favorites and sets the icon to reflect status
+  // return true if movie id is in favorites and sets the icon to reflect status
   setFaveStatus(id: any): any {
     if (this.favorites.includes(id)) {
       return true;
@@ -79,7 +81,7 @@ export class MovieCardComponent implements OnInit {
     }
   }
 
-  // dialog opened when Genre button is clicked
+  // genre-dialog opened when Genre button is clicked
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreDialogComponent, {
       // pass genre data to genre dialog component
@@ -90,7 +92,7 @@ export class MovieCardComponent implements OnInit {
     } );
   }
 
-  // dialog opened when Director button is clicked
+  // director-dialog opened when Director button is clicked
   openDirectorDialog(name: string, bio: string): void {
     this.dialog.open(DirectorDialogComponent, {
       // pass director data to director dialog component
@@ -101,7 +103,7 @@ export class MovieCardComponent implements OnInit {
     } );
   }
 
-  // dialog opened when Synopsis button is clicked
+  // details-dialog opened when Synopsis button is clicked
   openDetailsDialog(title: string, description: string, image: string ): void {
     this.dialog.open(DetailsDialogComponent, {
       // pass movie data to details dialog component
