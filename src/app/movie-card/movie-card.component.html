@@ -33,18 +33,19 @@
           >
               Synopsis
           </button>
-          <br>
           <mat-icon
             *ngIf="!setFaveStatus(movie._id)"
+            aria-label='Add movie to favorites button'
             (click)="addFavoriteButton(movie._id, movie.Title)"
-            style="cursor: pointer"
+            style="cursor: pointer; position: absolute; right: 5px; top: 15px;" 
             >
             favorite_border
           </mat-icon>
           <mat-icon
             *ngIf="setFaveStatus(movie._id)"
+            aria-label='Delete movie from favorites button'
             (click)="removeFavoriteButton(movie._id, movie.Title)"
-            style="cursor: pointer"
+            style="cursor: pointer; position: absolute; right: 5px; top: 15px;"
             color="warn"
             >
             favorite
