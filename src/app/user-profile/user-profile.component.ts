@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { UserProfileUpdateComponent } from '../user-profile-update/user-profile-update.component';
 
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
+
 export class UserProfileComponent implements OnInit {
   user: any = {};
   favorites: any[] = [];
@@ -17,7 +20,8 @@ export class UserProfileComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public router: Router,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    public dialog: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +32,12 @@ export class UserProfileComponent implements OnInit {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
       console.log('getUserData reached', resp)
+    });
+  }
+
+  openProfileUpdateDialog(): void {
+    this.dialog.open(UserProfileUpdateComponent, {
+      width: '250px'
     });
   }
 
@@ -53,7 +63,7 @@ export class UserProfileComponent implements OnInit {
         });
       });
     } else {
-      window.location.reload();
+      this.router.navigate(['users']);
     }
   }
   // profileUpdateDialog(): void {
