@@ -10,7 +10,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class NavBarComponent implements OnInit {
 
-
   constructor(
     public snackBar: MatSnackBar
   ) { }
@@ -28,6 +27,5 @@ export class NavBarComponent implements OnInit {
     this.snackBar.open(`Logout was successful!`, 'OK', {
       duration: 3000,
     });
-    
   }
 }
