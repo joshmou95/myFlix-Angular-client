@@ -11,7 +11,9 @@
           placeholder="Username"
           type="text"
           name="Username"
+          value={{data.username}}
           autocomplete="username"
+          minlength="5"
           required
         >
         </mat-form-field>
@@ -32,6 +34,7 @@
           [(ngModel)]="userData.Email"
           type = "email"
           placeholder="Email"
+          value={{data.email}}
           name="Email"
           autocomplete="email"
           required
@@ -42,7 +45,7 @@
           matInput
           [(ngModel)]="userData.Birthday"
           type = "date"
-          placeholder="Birthday"  
+          placeholder="Birthday"
           name="Birthday"
           autocomplete="bday"
         >
