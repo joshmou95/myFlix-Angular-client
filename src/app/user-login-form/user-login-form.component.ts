@@ -16,10 +16,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-login-form.component.scss']
 })
 
+/**
+ * This class displays the user login form
+ */
 export class UserLoginFormComponent implements OnInit {
   isLoading = false;
   
-  // defines the components input, userData object is passed to the API call in the LoginUser function
+  /**
+   * defines the components input, userData object is passed to the API call in the LoginUser function
+   */
   @Input() userData = { Username: '', Password: '' };
 
   constructor(
@@ -32,7 +37,9 @@ export class UserLoginFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // This is the function responsible for sending the form inputs to the backend
+  /**
+   * This is the function responsible for sending the form inputs to the backend
+   */
   loginUser(): void {
     this.isLoading = true;
     this.fetchApiData.userLogin(this.userData).subscribe((response) => {
