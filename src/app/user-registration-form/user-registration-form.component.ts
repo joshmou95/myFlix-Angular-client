@@ -14,10 +14,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./user-registration-form.component.scss']
 })
 
+/**
+ * This class displays the user registration form
+ */
 export class UserRegistrationFormComponent implements OnInit {
   isLoading = false;
 
-  // defines the components input, userData object is passed to the API call in the registerUser function
+  /**
+   * defines the components input, userData object is passed to the API call in the registerUser function
+   */
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
@@ -28,7 +33,9 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Send the form inputs to register user at the API
+  /**
+   * Send the form inputs to register user at the API
+   */
   registerUser(): void {
       this.isLoading = true;
       this.fetchApiData.userRegistration(this.userData).subscribe((response) => {
