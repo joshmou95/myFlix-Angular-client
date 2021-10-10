@@ -12,6 +12,9 @@ import { UserProfileUpdateComponent } from '../user-profile-update/user-profile-
   styleUrls: ['./user-profile.component.scss']
 })
 
+/**
+ * This class displays the user profile
+ */
 export class UserProfileComponent implements OnInit {
   user: any = {};
   favorites: any = [];
@@ -26,12 +29,16 @@ export class UserProfileComponent implements OnInit {
     public dialog: MatDialog,
   ) { }
 
-  // gets user data upon page load
+  /**
+   *  gets user data upon page load
+   */
   ngOnInit(): void {
     this.getUserData();
   }
 
-  // get user object with username, email, birthday, and Favorite movies triggers getMovies()
+  /**
+   * get user object with username, email, birthday, and Favorite movies triggers getMovies()
+   */
   getUserData(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.user = resp;
@@ -39,7 +46,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // gets Movies data and triggers filterFavorites
+
+  /**
+   * gets Movies data and triggers filterFavorites
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -47,7 +57,10 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // filter Favorite movies from movies data returns user favorites to array
+  /**
+   * filter Favorite movies from movies data returns user favorites to array
+   * @returns favorites array
+   */
   filterFavorites(): void {
     this.movies.forEach((movie: any) => {
       if (this.user.FavoriteMovies.includes(movie._id)) {
@@ -57,7 +70,12 @@ export class UserProfileComponent implements OnInit {
     return this.favorites;
   }
     
-  // with "Update Profile" button is pressed, it passes data to UserProfileUpdateComponent for update
+  /**
+   * with "Update Profile" button is pressed, it passes data to UserProfileUpdateComponent for update
+   * @param username 
+   * @param email 
+   * @param birthday 
+   */
   openProfileUpdateDialog(username: string, email: string, birthday: string): void {
     // pass data to user profile update component
     this.dialog.open(UserProfileUpdateComponent, {
@@ -70,7 +88,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
-  // when "Delete Account" button is pressed it deletes the user from the API after confirmation
+  /**
+   * when "Delete Account" button is pressed it deletes the user from the API after confirmation
+   */
   deleteUserData(): void {
     let check = confirm(
       'This will delete your profile! Are you sure you want to continue?'
