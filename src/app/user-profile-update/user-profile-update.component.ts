@@ -11,9 +11,14 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./user-profile-update.component.scss']
 })
 
+/**
+ * This class displays the user profile update input
+ */
 export class UserProfileUpdateComponent implements OnInit {
   
-  // defines the components input, userData object is passed to the API call in the updateUser function
+  /**
+   *  defines the components input, userData object is passed to the API call in the updateUser function
+   */
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
   constructor(
@@ -27,7 +32,9 @@ export class UserProfileUpdateComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Update user data via the form 
+  /**
+   * Update user data via the form 
+   */
   updateUser(): void {
     this.fetchApiData.updateUser(this.userData).subscribe((response) => {
       // This will close the modal on success
