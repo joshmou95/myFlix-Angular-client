@@ -8,6 +8,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./nav-bar.component.scss']
 })
 
+/**
+ * This class displays a navigation bar to movies, user profile, and logout
+ */
 export class NavBarComponent implements OnInit {
 
   constructor(
@@ -17,7 +20,9 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // Logs out current user
+  /**
+   * Logs out current user
+   */
   userLogout () {
     console.log('userLogout Reached')
     // remove token and user from local storage
