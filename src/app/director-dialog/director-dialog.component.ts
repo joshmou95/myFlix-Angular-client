@@ -7,10 +7,15 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./director-dialog.component.scss']
 })
 
+/**
+ * This class displays director name and bio
+ */
 export class DirectorDialogComponent implements OnInit {
 
   constructor(
-    // retrieve data from movie-card openDirectorDialog()
+    /**
+     * retrieve data from movie-card openDirectorDialog()
+     */
     @Inject(MAT_DIALOG_DATA)
     public data: any) { }
 
