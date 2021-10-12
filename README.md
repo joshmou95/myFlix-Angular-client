@@ -2,9 +2,10 @@
 
 ![angular-app](https://user-images.githubusercontent.com/80426764/136888094-70ae00f9-0715-4ef3-a53a-6ce14445c515.gif)
 
-Build a client-side for an application called myFlix based on the existing server-side code REST API and database movie-api. <br>
-A single page, responsive movie app built with Angular with routing and several interface views. <br>
-Users will be able to user the app whenever they want to read information about different movies or update their user information.<br>
+## Objective
+* Build a client-side for an application called myFlix based on the existing server-side code REST API and database movie-api. <br>
+* A single page, responsive movie app built with Angular with routing and several interface views. <br>
+* Users will be able to user the app whenever they want to read information about different movies or update their user information.<br>
 
 ## User Stories
 * As a user, I want to be able to receive information on movies, directors, and genres so that I can learn more about movies I’ve watched or am interested in.<br>
