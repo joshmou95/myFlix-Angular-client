@@ -17,8 +17,12 @@ const apiUrl = 'https://myflixdb2000.herokuapp.com/';
  * API endpoints for MyFlix movies and user data
  */
 export class FetchApiDataService {
-  // Inject the HttpClient module to the constructor params
-  //  Provides HttpClient to the entire class, making it available via this.http
+
+    /**
+   * Inject the HttpClient module to the constructor params
+   * Provides HttpClient to the entire class, making it available via this.http
+   * @param http
+   */
   constructor(private http: HttpClient) { }
 
   /* ----- USER ENDPOINTS, REGISTRATION, LOGIN ----- */
